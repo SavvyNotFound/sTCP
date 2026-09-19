@@ -11,34 +11,23 @@
 
 int main()
 {
-    sTCP::sTCP("Initializing...");
+    sTCP::Init();
 
     // Create a socket
     int listening = socket(AF_INET, SOCK_STREAM, 0);
-    if (listening == -1)
-    {
-        std::cerr << "Failed to create listening socket!\n";
-        return -1;
-    }
+    sTCP_ASSERT(listening != -1, "Failed to create listening socket!");
 
-    // Bind the socket to a IP / Port
     sockaddr_in hint;
     hint.sin_family = AF_INET;
     hint.sin_port = htons(54000);
     inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
 
-    if (bind(listening, reinterpret_cast<sockaddr*>(&hint), sizeof(hint)) == -1)
-    {
-        std::cerr << "Failed to bind to IP-Port\n";
-        return -2;
-    }
+    int success = bind(listening, reinterpret_cast<sockaddr*>(&hint), sizeof(hint));
+    sTCP_ASSERT(success != -1, "Failed to bind to IP / Port");
 
     // Mark socket for listening
-    if (listen(listening, SOMAXCONN) == -1)
-    {
-        std::cerr << "Failed to listen!\n";
-        return -3;
-    }
+    success = listen(listening, SOMAXCONN);
+    sTCP_ASSERT(success != -1, "Failed to start listening");
 
     // Accept a call
     sockaddr_in client;
@@ -50,11 +39,7 @@ int main()
     memset(svc, 0, NI_MAXSERV);
 
     int clientSocket = accept(listening, reinterpret_cast<sockaddr*>(&client), &clientSize);
-    if (clientSocket == -1)
-    {
-        std::cerr << "Client failed to connect\n";
-        return -4;
-    }
+    sTCP_ASSERT(clientSocket != -1, "Client failed to connect");
     
     // Close the listening socket
     close(listening);
@@ -62,12 +47,12 @@ int main()
     int result = getnameinfo(reinterpret_cast<sockaddr*>(&client), sizeof(client), host, NI_MAXHOST, svc, NI_MAXSERV, 0);
     if (result)
     {
-        std::cout << host << " connected on " << svc << std::endl;
+        sTCP_INFO("{0} connected on {1}.", host, svc);
     }
     else
     {
         inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
-        std::cout << host << " connected on " << ntohs(client.sin_port) << std::endl;
+        sTCP_INFO("{0} connected on {1}.", host, ntohs(client.sin_port));
     }
 
     // While receiving- messages, echo message
@@ -82,18 +67,18 @@ int main()
         int bytesRecv = recv(clientSocket, buff, buffSize, 0);
         if (bytesRecv == -1)
         {
-            std::cerr << "Connection Issue\n";
+            sTCP_ERROR("Connection issue!");
             break;
         }
 
         if (bytesRecv == 0)
         {
-            std::cout << "Client disconnected\n";
+            sTCP_INFO("Client Disconnected");
             break;
         }
 
         // Display message
-        std::cout << "Received: " << std::string(buff, 0, bytesRecv) << std::endl;
+        sTCP_LOG("{0}", std::string(buff, 0, bytesRecv));
 
         // Resend message
         send(clientSocket, buff, bytesRecv + 1, 0);
@@ -101,6 +86,4 @@ int main()
 
     // Close socket
     close(clientSocket);
-
-    sTCP::sTCP("Terminating...");
 }

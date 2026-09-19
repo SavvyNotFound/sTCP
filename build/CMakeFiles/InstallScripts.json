@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/savvy/dev/simple-tcp-cpp/build/cmake_install.cmake",
-		"/home/savvy/dev/simple-tcp-cpp/build/sTCP/cmake_install.cmake",
-		"/home/savvy/dev/simple-tcp-cpp/build/App/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

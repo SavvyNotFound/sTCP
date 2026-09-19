@@ -1,0 +1,3 @@
+[submodule "sTCP/vendor/spdlog"]
+	path = sTCP/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
