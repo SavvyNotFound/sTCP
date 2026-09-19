@@ -1,0 +1,2 @@
+/usr/sbin/ar qc libsTCP.a CMakeFiles/sTCP.dir/src/sTCP/example.cpp.o
+/usr/sbin/ranlib libsTCP.a

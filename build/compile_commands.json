@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/savvy/dev/simple-tcp-cpp/build/sTCP",
+  "command": "/usr/sbin/c++ -DsTCP_DEBUG -DsTCP_LINUX -I/home/savvy/dev/simple-tcp-cpp/sTCP/src -g -std=gnu++17 -g -o CMakeFiles/sTCP.dir/src/sTCP/example.cpp.o -c /home/savvy/dev/simple-tcp-cpp/sTCP/src/sTCP/example.cpp",
+  "file": "/home/savvy/dev/simple-tcp-cpp/sTCP/src/sTCP/example.cpp",
+  "output": "sTCP/CMakeFiles/sTCP.dir/src/sTCP/example.cpp.o"
+},
+{
+  "directory": "/home/savvy/dev/simple-tcp-cpp/build/App",
+  "command": "/usr/sbin/c++ -DsTCP_DEBUG -DsTCP_LINUX -I/home/savvy/dev/simple-tcp-cpp/sTCP/src -g -std=gnu++17 -g -o CMakeFiles/App.dir/src/main.cpp.o -c /home/savvy/dev/simple-tcp-cpp/App/src/main.cpp",
+  "file": "/home/savvy/dev/simple-tcp-cpp/App/src/main.cpp",
+  "output": "App/CMakeFiles/App.dir/src/main.cpp.o"
+}
+]

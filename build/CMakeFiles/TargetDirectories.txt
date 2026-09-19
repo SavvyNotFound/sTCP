@@ -1,0 +1,8 @@
+/home/savvy/dev/simple-tcp-cpp/build/CMakeFiles/edit_cache.dir
+/home/savvy/dev/simple-tcp-cpp/build/CMakeFiles/rebuild_cache.dir
+/home/savvy/dev/simple-tcp-cpp/build/sTCP/CMakeFiles/sTCP.dir
+/home/savvy/dev/simple-tcp-cpp/build/sTCP/CMakeFiles/edit_cache.dir
+/home/savvy/dev/simple-tcp-cpp/build/sTCP/CMakeFiles/rebuild_cache.dir
+/home/savvy/dev/simple-tcp-cpp/build/App/CMakeFiles/App.dir
+/home/savvy/dev/simple-tcp-cpp/build/App/CMakeFiles/edit_cache.dir
+/home/savvy/dev/simple-tcp-cpp/build/App/CMakeFiles/rebuild_cache.dir

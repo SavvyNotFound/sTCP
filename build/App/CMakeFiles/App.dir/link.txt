@@ -1,0 +1,1 @@
+/usr/sbin/c++ -g -Wl,--dependency-file=CMakeFiles/App.dir/link.d CMakeFiles/App.dir/src/main.cpp.o -o /home/savvy/dev/simple-tcp-cpp/bin/Debug-Linux-x86_64/App/App  ../sTCP/libsTCP.a
